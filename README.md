@@ -11,3 +11,6 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
 * The modification is in case of the disk space pressure (one of the author told me that four times the disk space of the fastqs is essential but actually more than 10 times is needed)
     - after ```line 420``` ```rm $name1$ext.sam``` added
     - after ```line 429``` ```rm $name2$ext.sam``` added
+    - after ```line 433``` ```rm *sort.sam``` added
+    - after ```line 435``` ```rm *sort1.sam``` added
+    - at ```line 442``` ```rm $name1$ext*.sa* $name2$ext*.sa*``` removed
