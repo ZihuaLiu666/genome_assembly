@@ -23,6 +23,7 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
     - after ```line 506``` ```rm ${outputdir}/merged_sort.txt``` added
 
 ### How to do?
-#### Juicer
+####    Start with juicer
+        * The 
 
 
