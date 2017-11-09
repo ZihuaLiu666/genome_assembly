@@ -19,4 +19,8 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
     - after ```line 473``` ```rm $name${ext}.frag.txt``` added
     - at ```line 479``` ```rm $name${ext}_norm.txt $name${ext}.frag.txt``` replaced
     - at ```line 479``` ```echo "(-: Nice work! Redundant files are already removed!"``` added
-    - after ```line 449``` ```rm $name$ext.sam``` added
+    - after ```line 496``` ```rm $splitdir/*.sort.txt``` added
+    - after ```line 506``` ```rm ${outputdir}/merged_sort.txt``` added
+
+### How to do?
+
