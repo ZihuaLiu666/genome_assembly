@@ -24,6 +24,7 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
 
 ### How to do?
 #### Start with juicer
-   * Let's firstly look into the command line of juicer: ```juicer.sh [option]``` 
+   * Let's firstly look into the command line of juicer: ```juicer.sh [options]``` 
+     Those options can be simplified as ```-d``` ```-D``` ```-S``` ```-r``` ```-R``` 
 
 
