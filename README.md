@@ -14,3 +14,9 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
     - after ```line 433``` ```rm *sort.sam``` added
     - after ```line 435``` ```rm *sort1.sam``` added
     - at ```line 442``` ```rm $name1$ext*.sa* $name2$ext*.sa*``` removed
+    - after ```line 449``` ```rm $name$ext.sam``` added
+    - after ```line 459``` ```rm $name${ext}_norm.txt``` added
+    - after ```line 473``` ```rm $name${ext}.frag.txt``` added
+    - at ```line 479``` ```rm $name${ext}_norm.txt $name${ext}.frag.txt``` replaced
+    - at ```line 479``` ```echo "(-: Nice work! Redundant files are already removed!"``` added
+    - after ```line 449``` ```rm $name$ext.sam``` added
