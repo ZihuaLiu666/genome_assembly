@@ -353,7 +353,7 @@ then
         ext=${i#*$read1str}
         name=${i%$read1str*}
         # these names have to be right or it'll break
-	      name1=${name}${read1str}
+	name1=${name}${read1str}
         name2=${name}${read2str}
         jname=$(basename $name)${ext}
         usegzip=0
@@ -433,10 +433,10 @@ then
         # add read end indicator to readname
 	awk 'BEGIN{OFS="\t"}NF>=11{$1=$1"/1"; print}' $name1${ext}_sort.sam > $name1${ext}_sort1.sam
 	awk 'BEGIN{OFS="\t"}NF>=11{$1=$1"/2"; print}' $name2${ext}_sort.sam > $name2${ext}_sort1.sam
-  rm *sort.sam
+        rm *sort.sam
 
 	sort -T $tmpdir -k1,1f -m $name1${ext}_sort1.sam $name2${ext}_sort1.sam > ${name}${ext}.sam
-  rm *sort1.sam
+        rm *sort1.sam
 
 	if [ $? -ne 0 ]
 	then
@@ -450,7 +450,7 @@ then
         # sorted file is sorted by read name at this point
 	touch $name${ext}_abnorm.sam $name${ext}_unmapped.sam
 	awk -v "fname1"=$name${ext}_norm.txt -v "fname2"=$name${ext}_abnorm.sam -v "fname3"=$name${ext}_unmapped.sam -f ${juiceDir}/scripts/common/chimeric_blacklist.awk $name$ext.sam
-  rm $name$ext.sam
+        rm $name$ext.sam
 	if [ $? -ne 0 ]
 	then
             echo "***! Failure during chimera handling of $name${ext}"
@@ -476,7 +476,6 @@ then
 	fi
         # sort by chromosome, fragment, strand, and position
 	sort -T $tmpdir -k2,2d -k6,6d -k4,4n -k8,8n -k1,1n -k5,5n -k3,3n $name${ext}.frag.txt > $name${ext}.sort.txt
-  rm $name${ext}.frag.txt
 	if [ $? -ne 0 ]
 	then
             echo "***! Failure during sort of $name${ext}"
