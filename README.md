@@ -9,6 +9,7 @@ A customized 3D genome *de novo* assembly protocol based on the powerful tools d
 The **juicer.sh** in the juicer is modified when you are going to run it on a single CPU (**NOTICE**: The CPU version is fine for small Hi-C experiments, but any reasonably sized experiment will take an extremely long time to run and therefore should be run [on a cluster](https://github.com/theaidenlab/juicer/wiki/Running-Juicer-on-a-cluster) or [in the cloud](https://github.com/theaidenlab/juicer/wiki/Running-Juicer-on-Amazon-Web-Services)). The following is about modified information: 
 
 * The modification is in case of the disk space pressure (one of the author told me that four times the disk space of the fastqs is essential but actually more than 10 times is needed)
+* **Althogh** it will minimize your space pressure, it may also cause troubles if something wrong with your troubleshooting.
     - after ```line 420``` ```rm $name1$ext.sam``` added
     - after ```line 429``` ```rm $name2$ext.sam``` added
     - after ```line 433``` ```rm *sort.sam``` added
@@ -16,7 +17,6 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
     - at ```line 442``` ```rm $name1$ext*.sa* $name2$ext*.sa*``` removed
     - after ```line 449``` ```rm $name$ext.sam``` added
     - after ```line 459``` ```rm $name${ext}_norm.txt``` added
-    - after ```line 473``` ```rm $name${ext}.frag.txt``` added
     - at ```line 479``` ```rm $name${ext}_norm.txt $name${ext}.frag.txt``` replaced
     - at ```line 479``` ```echo "(-: Nice work! Redundant files are already removed!"``` added
     - after ```line 496``` ```rm $splitdir/*.sort.txt``` added
