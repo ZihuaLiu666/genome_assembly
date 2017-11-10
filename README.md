@@ -25,4 +25,6 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
 ### How to do?
 #### Start with juicer
    * Let's firstly look into the command line of juicer: ```juicer.sh [options]```. hose options can be simplified as ```-d``` ```-D``` ```-S``` ```-r``` ```-R``` ```-z``` ```-s``` ```-y``` ```-p```
-        * ```-d``` ```topDir```
+        * ```-d``` ```the top directory```
+        * ```-D``` ```the directory that should have scripts/, references/ and restriction_sites/```
+        * ```-S``` ```choose modes (early, merge, dedup, final and postproc)```
