@@ -24,7 +24,13 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
 
 ### How to do?
 #### Start with juicer
-   * Let's firstly look into the command line of juicer: ```juicer.sh [options]```. hose options can be simplified as ```-d``` ```-D``` ```-S``` ```-r``` ```-R``` ```-z``` ```-s``` ```-y``` ```-p```
-        * ```-d``` ```the top directory```
+   * Let's firstly look into the command line of juicer: ```juicer.sh [options]```. hose options can be simplified as
         * ```-D``` ```the directory that should have scripts/, references/ and restriction_sites/```
         * ```-S``` ```choose modes (early, merge, dedup, final and postproc)```
+        * ```-d``` ```the top directory```
+        * ```-r``` ```use the short read version of the aligner, bwa aln```
+        * ```-R``` ```2 meeans paired-end```
+        * ```-z``` ```the directory of your draft genome assembly file (.fasta)```
+        * ```-s``` ```MboI or HindIII```
+        * ```-y``` ```the directory of your restriction site file (.bed)```
+        * ```-p``` ```the directory of your chromosome sizes file (.sizes)```
