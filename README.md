@@ -12,8 +12,8 @@ The **juicer.sh** in the juicer is modified when you are going to run it on a si
 * **Althogh** it will minimize your space pressure, it may also cause troubles if something wrong with your troubleshooting.
     - after ```line 420``` ```rm $name1$ext.sam``` added
     - after ```line 429``` ```rm $name2$ext.sam``` added
-    - after ```line 433``` ```rm *sort.sam``` added
-    - after ```line 435``` ```rm *sort1.sam``` added
+    - after ```line 433``` ```rm $name1${ext}_sort.sam $name2${ext}_sort.sam``` added
+    - after ```line 435``` ```rm $name1${ext}_sort1.sam $name2${ext}_sort1.sam``` added
     - at ```line 442``` ```rm $name1$ext*.sa* $name2$ext*.sa*``` removed
     - after ```line 449``` ```rm $name$ext.sam``` added
     - after ```line 459``` ```rm $name${ext}_norm.txt``` added
