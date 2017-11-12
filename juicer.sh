@@ -433,10 +433,11 @@ then
         # add read end indicator to readname
 	awk 'BEGIN{OFS="\t"}NF>=11{$1=$1"/1"; print}' $name1${ext}_sort.sam > $name1${ext}_sort1.sam
 	awk 'BEGIN{OFS="\t"}NF>=11{$1=$1"/2"; print}' $name2${ext}_sort.sam > $name2${ext}_sort1.sam
-        rm *sort.sam
+        rm $name1${ext}_sort.sam $name2${ext}_sort.sam
 
 	sort -T $tmpdir -k1,1f -m $name1${ext}_sort1.sam $name2${ext}_sort1.sam > ${name}${ext}.sam
-        rm *sort1.sam
+	
+        rm $name1${ext}_sort1.sam $name2${ext}_sort1.sam
 
 	if [ $? -ne 0 ]
 	then
