@@ -3,7 +3,7 @@ This protocol describes how to generate heatmap by three columns **.matrix** fil
 
 ### I. Generate small size .allValidPairs files
 Generally, you just want to know the interaction of two seperate DNA fragments (or regions) within a chromosome. For example, I want to know the whether there is interaction between **region A (22618019 - 22672908)** and **region B (21895916 - 22068370)** within the chromosome 9.
-
+    
     Here I show the first three lines of a complete .allValidPairs file:
     E00509:81:HF7YCALXX:8:2102:28909:49179  chr1  142  -   chr3   6071365  +  <forget about the rest data>
     E00509:81:HF7YCALXX:8:1101:31730:48160  chr1  142  +   chr18  11240651 +  <forget about the rest data>
