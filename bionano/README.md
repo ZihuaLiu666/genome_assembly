@@ -21,14 +21,14 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   example: `runBNG` `fa2cmap` `-f` `/home/zl/bionano/pilon_p.fasta` `-o` `/home/zl/bionano/output` `-e` `BspQI` `-s` `/home/zl/scripts`
   
   you will get the following two files:
-  * `/home/zl/bionano/output/pilon_p_BspQI_20Kb_5labels.cmap`
-  * `/home/zl/bionano/output/pilon_p_BspQI_20Kb_5labels_key.txt`
+  * `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap`
+  * `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels_key.txt`
 ***
 * STEP2: runBNG cmapstats
   ```
   Description: Get statistic analysis from the .cmap file
   ```
-  example: `runBNG` `cmapstats` `-c` `/home/zl/bionano/output/pilon_p_BspQI_20Kb_5labels.cmap` `-s` `/home/zl/scripts`
+  example: `runBNG` `cmapstats` `-c` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` `-s` `/home/zl/scripts`
   
   you will get the following information printed on screen:
   ```
@@ -51,6 +51,12 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   ```
   Description: Usually, you will have more than one .bnx file so you can merge all of your .bnx files into a merged_molecule.bnx file
   ```
-  example: `runBNG` `bnxmerge` `-l` `/home/zl/bionano/list` `-t` `8` `-m` `30` `-p` `merged_molecule` `-o` `/home/zl/bionano/output` `-r` `/home/zl/tools/RefAligner`
+  example: `runBNG` `bnxmerge` `-l` `/home/zl/bionano/list` `-t` `8` `-m` `30` `-p` `merged_Molecule` `-o` `/home/zl/bionano/output` `-r` `/home/zl/tools/RefAligner`
   
-  you will get the following files:
+  you will get the following three files:
+  * `/home/zl/bionano/output/merged_stats.txt`
+  * `/home/zl/bionano/output/merged_Molecules.bnx`
+  * `/home/zl/bionano/output/merged_Molecules.stdout`
+***
+* STEP4: runBNG bnxstats
+
