@@ -1,5 +1,5 @@
 # _de novo_ genome assembly by bionano data
-Recently, a newly sequencing technique becomes much more polular among _de novo_ genome assembly research, optical map, which could greatly improve the length of scaffold. You could read the _nature biotechnology_ paper ([Genome mapping on nanochannel arrays for structural variation analysis and sequence assembly](https://www.nature.com/articles/nbt.2303)) for more details about the nanochannel array technique.
+Recently, a newly sequencing technique becomes much more popular among _de novo_ genome assembly research, optical map, which could greatly improve the length of scaffold. You could read the _nature biotechnology_ paper ([Genome mapping on nanochannel arrays for structural variation analysis and sequence assembly](https://www.nature.com/articles/nbt.2303)) for more details about the nanochannel array technique.
 You will get **.bnx** files for future analysis and there are mainly three softwares, [Bionano Genomics IrysView software](https://bionanogenomics.com/support-page/irysview/), [KSU scripts](https://github.com/i5K-KINBRE-script-share/Irys-scaffolding) and [runBNG](https://github.com/AppliedBioinformatics/runBNG). I have tried all these three softwares and greatly prefer the runBNG software. 
 * **Bionano Genomics IrysView** supports **Windows OS 64-bit systems** only, and you could also explore the protocol and guide by its [website](https://bionanogenomics.com/support-page/irysview/) which provides the practice samples, learning PDFs and videos.
 * **KSU scripts** provide three pipelines: 
@@ -11,13 +11,13 @@ You will get **.bnx** files for future analysis and there are mainly three softw
 ## runBNG
 ***
 * STEP1: runBNG fa2cmap
+  ```
+  Description: in silico digest .fasta file into .cmap file using particular enzyme.
+  ```
   **Notice**: 
     * you need to make a output directory to store your runBNG results
     * set `runBNG` as executable shell: `chmod` `+x` `/home/zl/runBNG/runBNG`
     * quickly call runBNG: `alias` `runBNG='/home/zl/runBNG/runBNG'`
-  ```
-  Description: in silico digest .fasta file into .cmap file using particular enzyme.
-  ```
   example: `runBNG` `fa2cmap` `-f` `/home/zl/bionano/pilon_p.fasta` `-o` `/home/zl/bionano/output` `-e` `BspQI` `-s` `/home/zl/scripts`
   
   you will get the following two files:
@@ -155,4 +155,16 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   ```
   Description: De novo assembly for BioNano single molecules
   ```
+  **Notice**: 
+   althoght `-p` `-n` `-d` `-f` and `-R` are optional parameters, you can acquire those argumens during the last MQR step. Actually, the default values are close to my own results.
+
+   |parameters|            meaning            |default|my data|abs diff|
+   |:--------:|:-----------------------------:|:-----:|:-----:|:------:|
+   |    -p    |flase positive density (/100Kb)|1.5    |1.27   |0.23    |
+   |    -n    |  false negative rate (%/100)  |0.15   |0.1    |0.05    |
+   |    -d    |       scalingSD (Kb^1/2)      |0      |-0.02  |0.02    |
+   |    -f    |          siteSD (Kb)          |0.02   |0.02   |0       |
+   |    -R    |          relativeSD           |0.03   |0.04   |0.01    |
+
+  example: `runBNG` `denovo` `-t` `/home/zl/tools/` `-s` `/home/zl/scripts/` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-T` `8` `-j` `8` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` **`-p`** `1.27` **`-n`** `0.1` **`-d`** `-0.02` **`-f`** `0.02` **`-R`** `0.04` `-o` `/home/zl/bionano/output`
   
