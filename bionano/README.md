@@ -243,6 +243,6 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   **_For more information, please check the \*_NGScontigs_HYBRID_SCAFFOLD.agp file and you will know which scaffolds have been stitched and vice versa._**
 ***
   
-## Congratulations! You have get the new fasta flie improved by optical map!!!
+## Congratulations! You have got the new fasta flie improved by optical map!!!
 
 Please cite [Andy Yuan's paper: **runBNG: a software package for BioNano genomic analysis on the command line**](https://academic.oup.com/bioinformatics/article/33/19/3107/3865779) if you `runBNG` ;-)
