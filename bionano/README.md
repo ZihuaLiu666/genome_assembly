@@ -238,9 +238,9 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   └── xmap2agp.log
   ```
   
-  **_In the hybrid_scaffolds folder, you are expected to use the *_HYBRID_SCAFFOLD.fasta file and the *_HYBRID_SCAFFOLD_NOT_SCAFFOLDED.fasta file. You may merge them together._** 
+  **_In the hybrid_scaffolds folder, you are expected to use the /*_HYBRID_SCAFFOLD.fasta file and the /*_HYBRID_SCAFFOLD_NOT_SCAFFOLDED.fasta file. You may merge them together._** 
   
-  **_For more information, please check the *_NGScontigs_HYBRID_SCAFFOLD.agp file and you will know which scaffolds have been stitched and vice versa._**
+  **_For more information, please check the /*_NGScontigs_HYBRID_SCAFFOLD.agp file and you will know which scaffolds have been stitched and vice versa._**
   
   
 ## Congratulations! You have get the new fasta flie improved by optical map!!!
