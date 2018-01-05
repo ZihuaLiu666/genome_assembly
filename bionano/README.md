@@ -38,8 +38,8 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   Stats of the cmap file:
   Count  = 1881
   Min length (Mb) = 0.02
-  Median length (Mb) = 0.604
-  Mean length (Mb) = ???
+  Median length (Mb) = 0.067
+  Mean length (Mb) = 0.604
   N50 length (Mb) = 4.199
   Max length (Mb) = 19.837
   Total length (Mb) = 1136.310
@@ -51,29 +51,28 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   ```
   Description: Usually, you will have more than one .bnx file so you can merge all of your .bnx files into a merged_molecule.bnx file
   ```
-  example: `runBNG` `bnxmerge` `-l` `/home/zl/bionano/list` `-t` `8` `-m` `30` `-p` `merged_Molecule` `-o` `/home/zl/bionano/output` `-r` `/home/zl/tools/RefAligner`
+  example: `runBNG` `bnxmerge` `-l` `/home/zl/bionano/list` `-t` `8` `-m` `30` `-p` `merged_Molecule` `-o` `/home/zl/bionano/output/bnxmerge` `-r` `/home/zl/tools/RefAligner`
   
   the `/home/zl/bionano/list` of `-l` contains the absolute path of the to be merged .bnx files, for example
   ```
-  /home/zl/bionano/W1/Molecules.bnx
-  /home/zl/bionano/W2/Molecules.bnx
   /home/zl/bionano/PK1/Molecules.bnx
   /home/zl/bionano/PK2/Molecules.bnx
   ```
   
   you will get the following three files:
-  * `/home/zl/bionano/output/merged_stats.txt`
-  * `/home/zl/bionano/output/merged_Molecules.bnx`
-  * `/home/zl/bionano/output/merged_Molecules.stdout`
+  * `/home/zl/bionano/output/bnxmerge/merge_stats.txt`
+  * `/home/zl/bionano/output/bnxmerge/merge_Molecules.bnx`
+  * `/home/zl/bionano/output/bnxmerge/merge_Molecules.idmap`
+  * `/home/zl/bionano/output/bnxmerge/merge_Molecules.stdout`
 ***
 * STEP4: runBNG bnxstats
   ```
   Description: Get statistic analysis from the .bnx file
   ```
-  example: `runBNG` `bnxstats` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-p` `bnxstats_table` `-o` `/home/zl/bionano/output`
+  example: `runBNG` `bnxstats` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-p` `bnxstats_table` `-o` `/home/zl/bionano/output/bnxstats`
   
   you will get the following one file:
-  * `/home/zl/bionano/output/bnxstats_table.txt`
+  * `/home/zl/bionano/output/bnxstats/bnxstats_table.txt`
   
   you will also see these printed on your screen:
   ```
@@ -111,18 +110,18 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   ```
   Description: Filter unqualified molecule maps and get a new bnx file
   ```
-  example: `runBNG` `bnxfilter` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-t` `8` `-m` `30`  `-p` `filter_merged_molecule` `-o` `/home/zl/bionano/output` `-r` `/home/zl/tools/RefAligner`
+  example: `runBNG` `bnxfilter` `-b` `/home/zl/bionano/output/bnxmerge/merged_Molecules.bnx` `-t` `8` `-m` `30`  `-p` `filter_merge_Molecules` `-o` `/home/zl/bionano/output/bnxfilter` `-r` `/home/zl/tools/RefAligner`
   
   you will get the following three files:
-  * `/home/zl/bionano/output/filtered_stats.txt`
-  * `/home/zl/bionano/output/filter_merged_molecule.bnx`
-  * `/home/zl/bionano/output/filter_merged_molecule.stdout`
+  * `/home/zl/bionano/output/bnxfilter/filtered_stats.txt`
+  * `/home/zl/bionano/output/bnxfilter/filter_merge_Molecule.bnx`
+  * `/home/zl/bionano/output/bnxfilter/filter_merge_Molecule.stdout`
 ***
 * STEP6: runBNG MQR
   ```
   Description: Report the helpful stats of given BioNano single molecules for the coming de novo assemble step
   ```
-  example: `runBNG` `MQR` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` `-z` `1136.310` `-R` `/home/zl/tools/RefAligner` `-t` `8` `-m` `30` `-o` `/home/zl/bionano/output` `-p` `MQR`
+  example: `runBNG` `MQR` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` `-z` `1136` `-R` `/home/zl/tools/RefAligner` `-t` `8` `-m` `30` `-o` `/home/zl/bionano/output` `-p` `MQR`
   
   you will get the following 12 files:
   * `/home/zl/bionano/output/MQR_r.cmap`
@@ -160,11 +159,90 @@ You will get **.bnx** files for future analysis and there are mainly three softw
 
    |parameters|            meaning            |default|my data|abs diff|
    |:--------:|:-----------------------------:|:-----:|:-----:|:------:|
-   |    -p    |flase positive density (/100Kb)|1.5    |1.27   |0.23    |
-   |    -n    |  false negative rate (%/100)  |0.15   |0.1    |0.05    |
-   |    -d    |       scalingSD (Kb^1/2)      |0      |-0.02  |0.02    |
-   |    -f    |          siteSD (Kb)          |0.02   |0.02   |0       |
+   |    -p    |flase positive density (/100Kb)|1.5    |1.23   |0.27    |
+   |    -n    |  false negative rate (%/100)  |0.15   |0.09   |0.06    |
+   |    -d    |       scalingSD (Kb^1/2)      |0      |0.03   |0.03    |
+   |    -f    |          siteSD (Kb)          |0.02   |0.20   |0.18    |
    |    -R    |          relativeSD           |0.03   |0.04   |0.01    |
 
-  example: `runBNG` `denovo` `-t` `/home/zl/tools/` `-s` `/home/zl/scripts/` `-b` `/home/zl/bionano/output/merged_Molecules.bnx` `-T` `8` `-j` `8` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` **`-p`** `1.27` **`-n`** `0.1` **`-d`** `-0.02` **`-f`** `0.02` **`-R`** `0.04` `-o` `/home/zl/bionano/output`
+  example: `runBNG` `denovo` `-t` `/home/zl/tools/` `-s` `/home/zl/scripts/` `-b` `/home/zl/bionano/output/bnxfilter/filter_merge_Molecules.bnx` `-T` `8` `-j` `2` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` **`-p`** `1.23` **`-n`** `0.09` **`-d`** `0.03` **`-f`** `0.2` **`-R`** `0.04` `-o` `/home/zl/bionano/output/hybrid`
   
+  **Notice**:
+  This step may take over 5 days to be completed becasue totally 26 stages will be executed. So keep power on ;-)
+  
+  you will get the following files in the output directory (completed states):
+  * `/home/zl2202/bionano/output/denovo/exp_optArguments.xml`
+  * `/home/zl2202/bionano/output/denovo/all.bnx`
+  * `/home/zl2202/bionano/output/denovo/molecule_stats.txt`
+  * `/home/zl2202/bionano/output/denovo/all_sorted.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_sorted.stdout`
+  * `/home/zl2202/bionano/output/denovo/all_1_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_2_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_3_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_4_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_5_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_6_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_7_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all_8_of_8.bnx`
+  * `/home/zl2202/bionano/output/denovo/all.stdout`
+  * `/home/zl2202/bionano/output/denovo/all.list`
+  * `/home/zl2202/bionano/output/denovo/exp_informaticsReport.txt`
+  * `/home/zl2202/bionano/output/denovo/status.xml`
+  * `/home/zl2202/bionano/output/denovo/memory_log.txt`
+  * `/home/zl2202/bionano/output/denovo/exp_pipelineReport.txt`
+  
+  you will also get the following three directories:
+  * `/home/zl2202/bionano/output/denovo/ref (with one file in)`
+  * `/home/zl2202/bionano/output/denovo/align (with 109 files in)`
+  * `/home/zl2202/bionano/output/denovo/contigs (with 899 files and 43 subdirectories in)`
+  
+  **_ATTENTION:
+  Only the file `/home/zl2202/bionano/output/denovo/contigs/exp_refineFinal1/EXP_REFINEFINAL1.cmap` is needed to make future hybrid (generating new fasta file) process._**
+  
+***
+* STEP8: runBNG hybrid
+  ```
+  Description: Generating new fasta flie improved by optical map
+  ```  
+  example: `runBNG` `hybrid` `-t` `/home/zl2202/tools/` `-s` `/home/zl2202/scripts/` `-b` `/home/zl2202/bionano/output/bnxfilter/filtered_merged_Molecules.bnx` `-r` `/home/zl2202/bionano/pilon_p.fasta` `-e` `BspQI` `-z` `1136` `-f` `/home/zl2202/bionano/output/denovo/contigs/exp_refineFinal1/EXP_REFINEFINAL1.cmap` `-o` `/home/zl2202/bionano/output/hybrid` `-T` `8` `-M` `32` `-B` `2` `-N` `2` 
+  
+  you will get the following one file in the output directory:
+  * `cur_results.txt`
+  
+  you will get 11 folders in the hybrid directory:
+  * `/home/zl2202/bionano/output/hybrid/fa2cmap`
+  * `/home/zl2202/bionano/output/hybrid/align0`
+  * `/home/zl2202/bionano/output/hybrid/align1`
+  * `/home/zl2202/bionano/output/hybrid/assignAlignType`
+  * `/home/zl2202/bionano/output/hybrid/mergeNGS_BN`
+  * `/home/zl2202/bionano/output/hybrid/agp_fasta`
+  * `/home/zl2202/bionano/output/hybrid/align_final`
+  * `/home/zl2202/bionano/output/hybrid/hybrid_scaffolds`
+  * `/home/zl2202/bionano/output/hybrid/alignmol_bionano`
+  * `/home/zl2202/bionano/output/hybrid/alignmol_hybrid`
+  * `/home/zl2202/bionano/output/hybrid/auto_noise`
+  
+  ```
+  cd /home/zl2202/bionano/output/hybrid/agp_fasta
+  ls -rtl 
+  .
+  ├── EXP_REFINEFINAL1_bppAdjust_cmap_Test_fa_NGScontigs_HYBRID_SCAFFOLD.agp
+  ├── EXP_REFINEFINAL1_bppAdjust_cmap_Test_fa_NGScontigs_HYBRID_SCAFFOLD.fasta
+  ├── EXP_REFINEFINAL1_bppAdjust_cmap_Test_fa_NGScontigs_HYBRID_SCAFFOLD.gap
+  ├── EXP_REFINEFINAL1_bppAdjust_cmap_Test_fa_NGScontigs_HYBRID_SCAFFOLD_NOT_SCAFFOLDED.fasta
+  ├── EXP_REFINEFINAL1_bppAdjust_cmap_Test_fa_NGScontigs_HYBRID_SCAFFOLD_trimHeadTailGap.coord
+  ├── EXP_REFINEFINAL1_bppAdjust_cmap_Test_fa_NGScontigs_HYBRID_SCAFFOLD.xmap_sorted.xmap
+  ├── Test_BSPQI_20kb_5labels_key.txt.cutted.txt
+  ├── Test.fa.cutted.fasta
+  ├── xmap2agp.errlog
+  └── xmap2agp.log
+  ```
+  
+  **_In the hybrid_scaffolds folder, you are expected to use the *_HYBRID_SCAFFOLD.fasta file and the *_HYBRID_SCAFFOLD_NOT_SCAFFOLDED.fasta file. You may merge them together._** 
+  
+  **_For more information, please check the *_NGScontigs_HYBRID_SCAFFOLD.agp file and you will know which scaffolds have been stitched and vice versa._**
+  
+  
+## Congratulations! You have get the new fasta flie improved by optical map!!!
+
+Please cite [Andy Yuan's paper: **runBNG: a software package for BioNano genomic analysis on the command line**](https://academic.oup.com/bioinformatics/article/33/19/3107/3865779) if you `runBNG` ;-)
