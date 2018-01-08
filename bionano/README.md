@@ -28,6 +28,7 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   ```
   Description: Get statistic analysis from the .cmap file
   ```
+  
   example: `runBNG` `cmapstats` `-c` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` `-s` `/home/zl/scripts`
   
   you will get the following information printed on screen:
@@ -139,10 +140,10 @@ You will get **.bnx** files for future analysis and there are mainly three softw
   
   you will also get the stats printed on your screen:
   ```
-  False Positive Density (/100Kb) [FP]: 1.27
+  False Positive Density (/100Kb) [FP]: 1.23
   False Positive (%/100): 0.07
-  False Negative Rate (%/100) [FN]: 0.1
-  ScalingSD (Kb^1/2) [sd]: -0.02
+  False Negative Rate (%/100) [FN]: 0.09
+  ScalingSD (Kb^1/2) [sd]: 0.03
   SiteSD (Kb) [sf]: 0.2
   RelativeSD [sr]: 0.04
   BPP: 485.68
@@ -165,7 +166,7 @@ You will get **.bnx** files for future analysis and there are mainly three softw
    |    -f    |          siteSD (Kb)          |0.02   |0.20   |0.18    |
    |    -R    |          relativeSD           |0.03   |0.04   |0.01    |
 
-  example: `runBNG` `denovo` `-t` `/home/zl/tools/` `-s` `/home/zl/scripts/` `-b` `/home/zl/bionano/output/bnxfilter/filter_merge_Molecules.bnx` `-T` `8` `-j` `2` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` **`-p`** `1.23` **`-n`** `0.09` **`-d`** `0.03` **`-f`** `0.2` **`-R`** `0.04` `-o` `/home/zl/bionano/output/hybrid`
+  example: `runBNG` `denovo` `-t` `/home/zl/tools/` `-s` `/home/zl/scripts/` `-b` `/home/zl/bionano/output/bnxfilter/filter_merge_Molecules.bnx` `-z` `1136` `-T` `8` `-j` `2` `-r` `/home/zl/bionano/output/fa2cmap/pilon_p_BspQI_20Kb_5labels.cmap` **`-p`** `1.23` **`-n`** `0.09` **`-d`** `0.03` **`-f`** `0.2` **`-R`** `0.04` `-o` `/home/zl/bionano/output/hybrid`
   
   **Notice**:
   This step may take over 5 days to be completed becasue totally 26 stages will be executed. So keep power on ;-)
