@@ -7,7 +7,7 @@ mkdir 3g_juicer && cd 3g_juicer
 ```
 ***
 
-2. :dog1: soft link juicer script into your working directory as **scripts**
+2. :dog: soft link juicer script into your working directory as **scripts**
 ```
 ln -s /home/zkzhou/software/juicer/CPU scripts
 ```
@@ -35,7 +35,7 @@ after bwa index step, you will get five index files. Totally, six files are allo
 
 ***
 
-4. :dog1: generate restriction file and length file of your raw fasta file
+4. :dog: generate restriction file and length file of your raw fasta file
 
 **NOTICE :volcano:**
 make sure what kind of ENZYME you used! :volcano:
@@ -74,7 +74,7 @@ cd ..
 ```
 ***
 
-6. :dog1: run juicer
+6. :dog: run juicer
 ```
 mkdir work && cd work
 vi 3g_juicer.sh
