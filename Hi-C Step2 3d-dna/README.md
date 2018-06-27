@@ -26,6 +26,16 @@ You just need to change the following five parameters:
 Therefore, you really need to play with **3d-dna** by your intelligence. Here is some tips you can take.
 2. the \*.mnd.txt file looks like this:
 ```
-0 tig00000003_pilon_pilon 36 0 16 tig00000003_pilon_pilon 225 1 37 50M ATTAAAAGCAAGAAAAGAACAGAACAGCAGAGAGAAGGGAGAAGGAAAGG 37 50M TGCTCTGTGGCCGCCCAGTCCCGGTCCCTGTCCCCGTCCCGTTCCCGATC E00509:81:HF7YCALXX:7:1220:14692:18045/1 E00509:81:HF7YCALXX:7:1220:14692:18045/2
+...
+0 tig0000003_pilon_pilon 8204 21 16 tig00000013_pilon_pilon 8426 21 23 50M CTGGCTGCGAAGCGGGGCGAGCATCCCGTTAGCCAGGGCGAGTCCCGAAG 37 50M CCTTCTAGCCTCAGACACACATTTGGGAGAGGCAGGAGAGGAGCCCCCGC E00509:81:HF7YCALXX:5:1215:20232:57882/2 E00509:81:HF7YCALXX:5:1215:20232:57882/1
+...
 ```
-3. actually, **WHAT YOU SHOULD KNOW IS THAT** the **\*.mnd.txt** file you get from the **juicer**, for example,
+
+the file tells you that tig00000003_pilon_pilon and tig00000013_pilon_pilon must interact with each other within one unkown chromosome. (This unkonwn chromosomes may be larger chromosomes, or mocrochromosomes. It doesn't matter! :confetti_ball:)
+
+WHAT YOU NEED TO DO NEXT IS TO SEPARATE
+
+* your raw fasta into two files (one contains all the contigs that belongs to the larger chromosomes and the contigs assembled into microchromosomes are included with the other file)
+* your \*.mnd.txt file into two files (same with the above)
+
+and run 3d-dna separately.
